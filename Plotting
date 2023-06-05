@@ -1,0 +1,34 @@
+shear_sum=[0]*len(x)
+moment_sum=[0]*len(x)
+
+for dx in range(len(x)):
+    ctr=0
+    for i in range(len(shear_total)):
+        ctr+=shear_total[i][dx]
+    shear_sum[dx]=ctr
+       
+for dx in range(len(x)):
+    ctr=0
+    for i in range(len(moment_total)):
+        ctr+=moment_total[i][dx]
+    moment_sum[dx]=ctr
+
+for i in range(len(moment_sum)):
+    moment_sum[i]*=-1
+   
+import matplotlib.pyplot as mpl
+
+fig, (ax1, ax2) = mpl.subplots(2, 1, sharex=True)  
+ax1.plot(x, shear_sum, color='blue')      #plots
+ax2.plot(x, moment_sum, color='red')
+
+mpl.xlabel('Length (m)')
+ax1.set_ylabel('Shear Force (N)')          #setting labels for each axes
+ax1.set_title('Shear Force diagram')
+ax2.set_ylabel('Bending Moment (Nm)')
+
+ax2.set_title('Bending Moment diagram')
+fig.suptitle('Beam Analysis Result', fontsize=16)
+                                 
+mpl.subplots_adjust(hspace=0.5) #spacing between subplots
+mpl.show()
