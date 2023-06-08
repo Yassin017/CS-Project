@@ -47,8 +47,8 @@ def open_input_window(values):
     forces = [[float(input_values[f'-FORCE_MAGNITUDE_{i}-']), float(input_values[f'-FORCE_ANGLE_{i}-']), float(input_values[f'-FORCE_POSITION_{i}-'])] for i in range(num_forces)]
     moments = [[float(input_values[f'-MOMENT_VALUE_{i}-']), float(input_values[f'-MOMENT_POSITION_{i}-'])] for i in range(num_moments)]
     
-    print(length, position_support1, position_support2, forces, moments)
-    sg.popup('Input Saved', 'Input data has been saved.')
+  
+    sg.popup('In Progress', 'Calculating the results...')
 
 
 layout = [
@@ -106,7 +106,7 @@ def plreactions(n):
     vr2 = mpl/arm_r2 
     vr1 = -ycomp-vr2       
     hr1 = -xcomp
-    print(vr1,vr2,hr1)
+    
     return vr1,vr2,hr1
 
 
