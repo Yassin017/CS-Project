@@ -1,5 +1,3 @@
-
-
 import PySimpleGUI as sg
 
 def open_input_window(values):
