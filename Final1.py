@@ -216,7 +216,9 @@ if PM!=[]:
         shear_total.append(s)      #Store shear force record for each point load
         moment_total.append(m)   #Store bending moment record for each point load
 
-
+print('The vertical reaction at R1 is',round(support_rns[0],3),'N')
+print('The vertical reaction at R2 is', round(support_rns[1],3),'N')
+print('The horizontal reaction at R1 is', round(support_rns[2],3),'N')
 #to sum up the SF and BM of all forces and moments
 shear_sum=[0]*len(x)
 moment_sum=[0]*len(x)
@@ -233,10 +235,6 @@ for dx in range(len(x)):
         ctr+=moment_total[i][dx]
     moment_sum[dx]=ctr
         
-
-print('The vertical reaction at R1 is',round(support_rns[0],3),'N')
-print('The vertical reaction at R2 is', round(support_rns[1],3),'N')
-print('The horizontal reaction at R1 is', round(support_rns[2],3),'N')
 
 for i in range(len(moment_sum)):
     moment_sum[i]*=-1
