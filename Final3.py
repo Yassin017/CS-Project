@@ -55,7 +55,7 @@ def open_input_window(values):
     moments = [[float(input_values[f'-MOMENT_VALUE_{i}-']), float(input_values[f'-MOMENT_POSITION_{i}-'])]
                for i in range(num_moments)]
 
-    sg.popup('Input Saved', 'Input data has been saved.')
+    sg.popup('Calculating results...', 'Continue to view graph')
 
 
 layout = [
@@ -237,9 +237,9 @@ for dx in range(len(x)):
     moment_sum[dx] = ctr
 
 print_reactions = '''
-The vertical reaction at support R1 is ''' + str(round(support_rns[0], 3)) + '''N
-The vertical reaction at support R2 is ''' + str(round(support_rns[1], 3)) + '''N
-The horizontal reaction at support R1 is ''' + str(round(support_rns[2], 3)) + '''N'''
+The vertical reaction at support R1 is ''' + str(round(support_rns[0], 2)) + '''N
+The vertical reaction at support R2 is ''' + str(round(support_rns[1], 2)) + '''N
+The horizontal reaction at support R1 is ''' + str(round(support_rns[2], 2)) + '''N'''
 
 for i in range(len(moment_sum)):
     moment_sum[i] *= -1
@@ -258,9 +258,9 @@ ax2.set_ylabel('Bending Moment (Nm)')
 ax2.set_title('Bending Moment diagram')
 fig.suptitle('Beam Analysis Result', fontsize = 16)
 
-ax2.text(
-    4,
-    100,
+fig.text(
+    0.5,
+    0.1,
     print_reactions,
     ha='center',
     va='center',
